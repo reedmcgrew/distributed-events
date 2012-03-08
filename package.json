@@ -1,11 +1,33 @@
 {
-    "name": "Distributed Events Library"
-  , "version": "0.0.1"
-  , "private": true
-  , "dependencies": {
+  "name": "distributed-events",
+  "version": "0.0.1",
+  "author": "Reed McGrew <reed@familylink.com>",
+  "description": "a distributed event emitter patterned after the Node.js events module",
+  "contributors": [ 
+    {
+      "name": "Reed McGrew",
+      "email": "reed@familylink.com"
+    } 
+  ],
+  "main": "./src/DistributedEventEmitter",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AncestryMatchlight/distributed-events.git"
+  },
+  "keywords": [
+    "distributed events",
+    "events",
+    "publish",
+    "subscribe"
+  ],
+  "dependencies" : {
     "request": ">= 2.9.100",
     "coffee-script": ">= 1.2.0",
     "nodeunit": ">= 0.7.3",
     "express": ">= 2.5.8"
+  },
+  "license": "MIT",
+  "engine": {
+    "node": "0.6.12"
   }
 }

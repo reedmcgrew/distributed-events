@@ -3,14 +3,12 @@
 ###
 DistributedEventEmitter = require('../src/DistributedEventEmitter')
 opts1 =
-    protocol: 'http'
     host: 'localhost'
     port: 8080
     subscribers: []
     publishers: []
 
 opts2 =
-    protocol: 'http'
     host: 'localhost'
     port: 8081
     subscribers: []

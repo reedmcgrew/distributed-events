@@ -19,8 +19,8 @@ subscribe_path = '/subscribe'
 module.exports = class DistributedEventEmitter
     constructor: (opts) ->
         #Handle Settings
-        {@protocol,
-        @host,
+        @protocol = 'http' #currently http is the only protocol accepted
+        {@host,
         @port,
         @subscribers,
         @publishers} = opts

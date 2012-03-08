@@ -5,6 +5,8 @@ This module provides a simple set of tools to write evented APIs.  Currently, th
 ## Installation
 This installation assumes you have node.js, npm, and coffeescript already installed.
 
+1. Run the following commands to set up the package:
+
 ```bash
 git clone git@github.com:AncestryMatchlight/distributed-events.git
 cd distributed-events
@@ -12,11 +14,11 @@ npm install
 sudo npm install -g nodemon
 ```
 
-After running the above commands, you can run the tests to make sure everything is running by typing `sh nodemon_example.sh`
+2. Copy the distributed-events folder into the node_modules folder of you node.js application.
 
 ## Example Usage
 ```coffeescript
-DistributedEventEmitter = require('../src/DistributedEventEmitter')
+DistributedEventEmitter = require 'distributed-events'
 assert = require('assert')
 opts1 =
     protocol: 'http'
@@ -24,7 +26,6 @@ opts1 =
     port: 8080
     subscribers: []
     publishers: []
-
 opts2 =
     protocol: 'http'
     host: 'localhost'
@@ -37,13 +38,16 @@ emitter2 = new DistributedEventEmitter(opts2)
 emitter1.start()
 emitter2.start()
 
-emitter1.on "test:received", (payload) =>
-    assert(payload.message is "This is an event body")
-    assert(payload._name is "test:received")
-
-emitter2.emit event_name, {message:  "This is an event body"}
-
+emitter1.subscribe_to(emitter2.getSubscribeUrl(), () =>
+    emitter1.on "test:received", (payload) =>
+        console.log "Event received"
+        assert(payload.message is "This is an event body")
+        assert(payload._name is "test:received")
+        console.log "Success!"
+        emitter1.stop()
+        emitter2.stop()
+    emitter2.emit "test:received", {message:  "This is an event body"}
+)
 ```
 
 ## To-Do
-- Make this module a true NPM package.

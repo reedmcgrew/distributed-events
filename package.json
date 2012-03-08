@@ -1,0 +1,11 @@
+{
+    "name": "http-profiling-proxy"
+  , "version": "0.0.1"
+  , "private": true
+  , "dependencies": {
+    "request": ">= 2.9.100",
+    "coffee-script": ">= 1.2.0",
+    "nodeunit": ">= 0.7.3",
+    "express": ">= 2.5.8"
+  }
+}

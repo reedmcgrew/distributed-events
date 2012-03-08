@@ -4,12 +4,14 @@ This module provides a simple set of tools to write evented APIs.  Currently, th
 
 ## Installation
 This installation assumes you have node.js, npm, and coffeescript already installed.
-```
+
+```bash
 git clone git@github.com:AncestryMatchlight/distributed-events.git
 cd distributed-events
 npm install
 sudo npm install -g nodemon
 ```
+
 After running the above commands, you can run the tests to make sure everything is running by typing `sh nodemon_example.sh`
 
 ## Example Usage

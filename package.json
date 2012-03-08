@@ -1,5 +1,5 @@
 {
-    "name": "http-profiling-proxy"
+    "name": "Distributed Events Library"
   , "version": "0.0.1"
   , "private": true
   , "dependencies": {
